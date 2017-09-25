@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>3D Avatar (face required) </title>
+    <meta charset="utf-8">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@bradolyer" />
+    <meta name="twitter:title" content="Your 3D avatar" />
+    <meta name="twitter:description" content="@This is your avatar" />
+    <meta name="twitter:image" content="https://bradoyler.github.io/avatar3d/test.jpg" />
+    <script src="three.min.js"></script>
+    <script src="OBJVertexColorLoader.js"></script>
+    <script src="OrbitControls.js"></script>
+    <script src="view.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div id="container">
+      <h1>3D Avatar</h1>
+      <div id="viewer">
+      	<div id="viewer_frame">
+          <div class="errormsg"> May be an issue with WebGL or browser.</div>
+        </div>
+        <div id="viewer_frame_b">
+          <div class="errormsg"> May be an issue with WebGL or browser.</div>
+        </div>
+      	<div style="display:none" id="viewer_controls">
+      	  <a id="objlink" href="#" download></a>
+      	  <input type="range" min="-50" max="20" value="-30" class="slider" id="zTranslate">
+      	  <input type="checkbox" checked id="checkBackground" />
+      	  <a href="https://twitter.com/share" class="twitter-share-button"
+      	     data-text="3D model of your avatar"
+      	     data-url="http://bradoyler.github.io/avatar3d"
+      	     data-via="bradoyler" data-related="bradoyler"
+      	     data-show-count="false">Tweet</a>
+      	  <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      	</div>
+      </div>
+    </div>
+  </body>
+</html>

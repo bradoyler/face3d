@@ -1,0 +1,15 @@
+{
+  "name": "face3d",
+  "version": "1.0.0",
+  "description": "",
+  "main": "OBJVertexColorLoader.js",
+  "scripts": {
+    "format": "standard --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "standard": "^10.0.3"
+  },
+  "author": "",
+  "license": "ISC"
+}
