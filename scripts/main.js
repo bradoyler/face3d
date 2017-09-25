@@ -95,7 +95,9 @@ function init () {
   function toggle () {
     if (rotate) {
       rotate = false
+      pause.innerHTML = 'START'
     } else {
+      pause.innerHTML = 'PAUSE'
       rotate = true
     }
   }
