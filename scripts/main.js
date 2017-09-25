@@ -19,8 +19,9 @@ window.onload = function () {
 }
 
 function init () {
-  var container = document.getElementById('viewer_frame')
-  var containerB = document.getElementById('viewer_frame_b')
+  var pause = document.getElementById('pause')
+  var viewer = document.getElementById('viewer_frame')
+  var viewerB = document.getElementById('viewer_frame_b')
   camera = new THREE.OrthographicCamera(-96, 96, -96, 96, 1, 1000)
   camera.up.set(0, 1, 0)
   camera.position.x = 40
@@ -85,11 +86,20 @@ function init () {
   rendererB = new THREE.WebGLRenderer({ alpha: true })
   rendererB.setPixelRatio(window.devicePixelRatio)
   rendererB.setSize(462, 462)
-  container.appendChild(renderer.domElement)
-  containerB.appendChild(rendererB.domElement)
+  viewer.appendChild(renderer.domElement)
+  viewerB.appendChild(rendererB.domElement)
 
   controls = new THREE.OrbitControls(camera, renderer.domElement)
   controlsB = new THREE.OrbitControls(camera, rendererB.domElement)
+
+  pause.addEventListener('click', function () {
+    console.log('>>><<<<')
+    if (rotate) {
+      rotate = false
+    } else {
+      rotate = true
+    }
+  })
 }
 
 function animate () {

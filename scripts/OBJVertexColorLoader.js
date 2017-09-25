@@ -1,3 +1,4 @@
+/* global THREE */
 /**
  * @author mrdoob / http://mrdoob.com/
  * @author sean bradley / https://www.youtube.com/user/seanwasere
@@ -34,11 +35,12 @@ THREE.OBJVertexColorLoader.prototype = {
     var vertexColors = []
     var faces = []
 
-        // v float float float float float float (vertex with rgb)
-    var vertex_colour_pattern = /^v\s+([\d|\.|\+|\-|e|E]+)\s+([\d|\.|\+|\-|e|E]+)\s+([\d|\.|\+|\-|e|E]+)\s+([\d|\.|\+|\-|e|E]+)\s+([\d|\.|\+|\-|e|E]+)\s+([\d|\.|\+|\-|e|E]+)/
+    // v float float float float float float (vertex with rgb)
+    // eslint-disable-next-line
+    var vertexColourPattern = /^v\s+([\d|\.|\+|\-|e|E]+)\s+([\d|\.|\+|\-|e|E]+)\s+([\d|\.|\+|\-|e|E]+)\s+([\d|\.|\+|\-|e|E]+)\s+([\d|\.|\+|\-|e|E]+)\s+([\d|\.|\+|\-|e|E]+)/
 
         // f vertex vertex vertex ...
-    var face_pattern1 = /^f\s+(-?\d+)\s+(-?\d+)\s+(-?\d+)(?:\s+(-?\d+))?/
+    var facePattern1 = /^f\s+(-?\d+)\s+(-?\d+)\s+(-?\d+)(?:\s+(-?\d+))?/
 
     var lines = text.split('\n')
 
@@ -49,24 +51,24 @@ THREE.OBJVertexColorLoader.prototype = {
 
       if (line.length === 0 || line.charAt(0) === '#') {
         continue
-      } else if ((result = vertex_colour_pattern.exec(line)) !== null) {
+      } else if ((result = vertexColourPattern.exec(line)) !== null) {
         vertices.push(
                     new THREE.Vector3(parseFloat(result[1]), parseFloat(result[2]), parseFloat(result[3]))
                 )
         vertexColors.push(new THREE.Color(parseFloat(result[4]), parseFloat(result[5]), parseFloat(result[6])))
-      } else if ((result = face_pattern1.exec(line)) !== null) {
+      } else if ((result = facePattern1.exec(line)) !== null) {
         faces.push(new THREE.Face3(result[1] - 1, result[2] - 1, result[3] - 1))
       }
     }
 
-    for (var i = 0; i < vertices.length; i++) {
-      geometry.vertices.push(vertices[i])
+    for (var j = 0; j < vertices.length; j++) {
+      geometry.vertices.push(vertices[j])
     }
-    for (var i = 0; i < faces.length; i++) {
-      faces[i].vertexColors[0] = vertexColors[faces[i].a]
-      faces[i].vertexColors[1] = vertexColors[faces[i].b]
-      faces[i].vertexColors[2] = vertexColors[faces[i].c]
-      geometry.faces.push(faces[i])
+    for (var k = 0; k < faces.length; k++) {
+      faces[k].vertexColors[0] = vertexColors[faces[k].a]
+      faces[k].vertexColors[1] = vertexColors[faces[k].b]
+      faces[k].vertexColors[2] = vertexColors[faces[k].c]
+      geometry.faces.push(faces[k])
     }
 
     var material = new THREE.MeshBasicMaterial({ vertexColors: THREE.VertexColors })

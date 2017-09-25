@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>3D Avatar (face required) </title>
+    <title>Face 3D</title>
     <meta charset="utf-8">
     <meta name="twitter:card" content="summary" />
+    <!-- <meta name="twitter:card" content="summary_large_image" /> -->
     <meta name="twitter:site" content="@bradolyer" />
-    <meta name="twitter:title" content="Your 3D avatar" />
-    <meta name="twitter:description" content="@This is your avatar" />
-    <meta name="twitter:image" content="https://bradoyler.github.io/avatar3d/test.jpg" />
-    <link rel="stylesheet" href="styles.css">
-    <script src="three.min.js"></script>
-    <script src="OBJVertexColorLoader.js"></script>
-    <script src="OrbitControls.js"></script>
-    <script src="view.js"></script>
+    <meta name="twitter:title" content="Face 3D" />
+    <meta name="twitter:description" content="Your avatar rendered as a 3D model with Three.js" />
+    <meta name="twitter:image" content="avatar.jpg" />
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="scripts/three.min.js"></script>
+    <script src="scripts/OBJVertexColorLoader.js"></script>
+    <script src="scripts/OrbitControls.js"></script>
+    <script src="scripts/main.js"></script>
   </head>
   <body>
     <div id="container">
       <h1>3D Avatar</h1>
+      <button id="pause" type="button" name="button">PAUSE</button>
       <div id="viewer">
       	<div id="viewer_frame">
           <div class="errormsg"> May be an issue with WebGL or browser.</div>
@@ -28,12 +30,12 @@
       	  <a id="objlink" href="#" download></a>
       	  <input type="range" min="-50" max="20" value="-30" class="slider" id="zTranslate">
       	  <input type="checkbox" checked id="checkBackground" />
-      	  <a href="https://twitter.com/share" class="twitter-share-button"
+      	  <!-- <a href="https://twitter.com/share" class="twitter-share-button"
       	     data-text="3D model of your avatar"
       	     data-url="http://bradoyler.github.io/avatar3d"
       	     data-via="bradoyler" data-related="bradoyler"
       	     data-show-count="false">Tweet</a>
-      	  <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      	  <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> -->
       	</div>
       </div>
     </div>
