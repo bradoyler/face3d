@@ -92,14 +92,15 @@ function init () {
   controls = new THREE.OrbitControls(camera, renderer.domElement)
   controlsB = new THREE.OrbitControls(camera, rendererB.domElement)
 
-  pause.addEventListener('click', function () {
-    console.log('>>><<<<')
+  function toggle () {
     if (rotate) {
       rotate = false
     } else {
       rotate = true
     }
-  })
+  }
+
+  pause.addEventListener('click', toggle)
 }
 
 function animate () {
